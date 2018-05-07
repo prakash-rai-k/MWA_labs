@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var lessMiddleware = require('less-middleware');
 var logger = require('morgan');
+var bodyParser = require('body-parser')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,6 +13,11 @@ var newsLetterRouter = require('./routes/newsLetter');
 var app = express();
 const port = 3000;
 const host = 'localhost';
+var validator = require('express-validator');
+
+//apply express-validator after body parser
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(validator());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
