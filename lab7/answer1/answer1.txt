@@ -1,0 +1,23 @@
+/**
+* Commands to create database in MongoDB
+* Database: library
+* Collection: book
+*
+*/
+
+use library;
+
+
+db.books.insert({
+	isbn:"ISBN 0-205-00065-7", 
+	title: "Asp.net 2.0", 
+	edition: "First Edition", 
+	author: ["John D. Ramage", "John C. Bean", "June Johnson"], 		
+	keywords:["Ramage", "Bean","Johnson", "Allyn and Bacon"], 		
+	borrowed:true, 
+	borrower:{
+		name:"Prakash Rai", 
+		entry:"October, 2017"
+	}, 
+	returnDate: new Date('2018-04-12)
+}); 
